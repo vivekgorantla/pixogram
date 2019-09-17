@@ -1,0 +1,13 @@
+<br>
+<div class="card-columns">
+    <div class="card" style="border-radius: 0" *ngFor='let user of users'>
+        <!-- <img class="card-img-top" src="" alt="Profile Pic"> -->
+        <div class="card-body">
+            <form (ngSubmit)='unblock(user)'>
+                <h6 class="text-muted">Id: {{user.id}}</h6>
+                <h6 class="text-muted">Email: {{user.email}}</h6>
+                <button type="submit" class="btn btn-secondary"> Unblock </button>
+            </form>
+        </div>
+    </div>
+</div>

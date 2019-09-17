@@ -1,0 +1,43 @@
+<br>
+<form class="text-center">
+    <div class="form-group row">
+        <div class="col-sm-4">
+            <label for="username">Username</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" class="form-control field" id="username" value={{userService.username}}
+                pattern="^[^-\s][a-zA-Z0-9_\s-]+$" title="No spaces allowed in the beginning" disabled>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-4">
+            <label for="password">Password</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="password" class="form-control field" [(ngModel)]="password"
+                [ngModelOptions]="{standalone: true}" placeholder="Enter Password">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-4">
+            <label for="rpassword">Repeat Password</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="password" class="form-control field" [(ngModel)]="repeatPassword"
+                [ngModelOptions]="{standalone: true}" placeholder="Enter Password Again" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-4">
+            <label for="email">Email Id</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="email" class="form-control field" value={{userService.email}} disabled>
+        </div>
+    </div>
+
+    <p *ngIf="success" class="text-center" style="color:green">Details Updated</p>
+    <p *ngIf="invalid" class="text-center" style="color:red">Password Mismatch</p>
+
+    <button type="submit" class="btn btn-secondary" (click)='changepassword()'> Update </button>
+</form>

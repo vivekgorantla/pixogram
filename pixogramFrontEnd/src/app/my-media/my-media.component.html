@@ -1,0 +1,36 @@
+<app-login-home></app-login-home>
+
+<div class="container">
+  <div class="row text-center text-lg-left">
+    <div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let image of images">
+
+        <img class="img-fluid img-thumbnail" [src]="sanitize(image)" style="height: 171px; width: fit-content;">
+
+    </div>
+  </div>
+</div>
+
+<div class="container px-5">
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#myMedia"> My Media </a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="myMedia" class="container tab-pane active">
+      <br>
+      <div class="card-columns">
+        <div class="card" style="border-radius: 0" *ngFor='let p of src'>
+          <img class="card-img-top" [src] = 'sanitize(p.url)' alt="My Media">
+          <h6 class="text-muted">{{p.url}}</h6>
+          <div class="card-body">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

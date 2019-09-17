@@ -1,0 +1,172 @@
+<app-login-home></app-login-home>
+
+<div class="container px-5">
+
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#singleMedia"> SingleMedia </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#multiMedia"> MultiMedia </a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    
+    <div id="singleMedia" class="container tab-pane active">
+      <br>
+      <h1 class="text-center"> Upload Single Media File </h1>
+
+      <form class="py-5">
+        <div class="form-group row">
+          <label for="browse" class="col-sm-2 col-form-label"> Browse </label>
+          <div class="col-sm-10">
+            <form (ngSubmit)="upload()" [formGroup]="form">
+              <input ng-model="file_upload" name="file" type="file" (change)="fileChange($event)" #fileInput>
+              <input type="submit" readonly class="field btn btn-primary" value="Upload">
+            </form>
+          </div>   
+        </div>
+        <div class="form-group row">
+          <label for="title" class="col-sm-2 col-form-label"> Title </label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control field" id="title" placeholder="Enter Title">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="description" class="col-sm-2 col-form-label">Description</label>
+          <div class="col-sm-10">
+            <textarea class="form-control field" rows="5" id="description"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="tags" class="col-sm-2 col-form-label">Tags</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control field" id="tags">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="effects" class="col-sm-2 col-form-label"> Effects </label>
+          <div class="col-sm-10">
+            <div class="btn-group w-100 " role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-outline-primary field">Sepia</button>
+              <button type="button" class="btn btn-outline-primary field">Grey</button>
+              <button type="button" class="btn btn-outline-primary field">Brightness</button>
+              <button type="button" class="btn btn-outline-primary field">Contrast</button>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="text-center">
+        </div>
+      </form>
+    </div>
+
+    <div id="multiMedia" class="container tab-pane fade">
+      <br>
+      <h1 class="text-center"> Upload Multiple Media Files </h1>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+<div class="select col-3 text-center p-5">
+<h4 style="font-family:sans-serif;" class="m-5">Upload Media</h4>
+<div class="btn-group-vertical  " role="group" aria-label="Basic example">
+<a [routerLink]="['/UploadMedia']"><button type="button" class="btn btn-secondary active" style="width:200px;height:50px;">Single Media</button></a>
+<a [routerLink]="['/UploadMMedia']"><button type="button" class="btn btn-secondary" style="width:200px;height:50px;">Multiple Media</button></a>
+</div>
+</div>
+<div class="main col-9  ">
+<div class="row p-5">    
+<div class="col-7">
+<h1 style="font-family:cursive;" >New Media Page</h1>
+<form-upload></form-upload>
+<br/><br/>      
+<list-upload></list-upload> -->
+
+
+
+
+
+<!-- <form style="text-align:left;" class="mt-5" (ngSubmit)="onUpload()">
+<div class="form-group row">
+<label for="browse" class="col-sm-2 col-form-label">Browse</label>
+<div class="col-sm-10">
+<input type="file" [(ngModel)]="image" [ngModelOptions]="{standalone: true}" name="image" class=" m-3 " id="browse" value="Browse">
+
+</div>
+</div>
+<div class="form-group row">
+<label for="title" class="col-sm-2 col-form-label">Title</label>
+<div class="col-sm-10">
+<input type="text" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" name="title" class="form-control" id="title" placeholder="Enter Title">
+</div>
+</div>
+<div class="form-group row">
+<label for="description" class="col-sm-2 col-form-label">Description</label>
+<div class="col-sm-10">
+<textarea class="form-control" [(ngModel)]="description" [ngModelOptions]="{standalone: true}" name="description" rows="5" id="description"></textarea>
+</div>
+</div>
+<div class="form-group row">
+<label for="tags" class="col-sm-2 col-form-label">Tags</label>
+<div class="col-sm-10">
+<input type="text" [(ngModel)]="tags" [ngModelOptions]="{standalone: true}"  class="form-control" name="tags" id="tags" placeholder="Select Tags">
+</div>
+</div>
+<div class="form-group row" >
+<label for="effects" class="col-sm-2 col-form-label">Effects</label>
+
+<div class="form-check ">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+<label class="form-check-label mr-2" for="exampleRadios1">
+Sepia
+</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+<label class="form-check-label mr-2" for="exampleRadios2">
+Grey
+</label>
+</div>
+<div class="form-check ">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+<label class="form-check-label mr-2" for="exampleRadios3">
+Brightness
+</label>
+</div>
+<div class="form-check ">
+<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option4" >
+<label class="form-check-label mr-2" for="exampleRadios3">
+Contrast
+</label>
+
+</div>
+</div>
+<div  class="form-group row">
+<input type="submit"  class="btn btn-lg btn-outline-secondary mr-3 ml-3" id="browse" value="Upload">
+</div>
+</form>-->
+
+
+
+<!-- 
+</div>
+<div class="col-1">
+<h4 style="margin-top:200px;text-align:center;">OR</h4>
+</div>
+<div class="col-2 text-center w-100 mt-5" style="border:2px solid black">
+<p style="margin-top:180px;">Drag & Drop here and Click on Upload</p>
+</div>
+</div>
+</div>
+</div> -->

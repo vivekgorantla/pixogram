@@ -1,0 +1,66 @@
+<app-login-home></app-login-home>
+<div class="container px-5">
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#All"> All </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#Followers" (click) = getFollowers()> Followers </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#Following" (click) = getFollowing()> Following </a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="All" class ="container tab-pane active">
+            <br>
+            <div class="card-columns">
+                <div class="card" style="border-radius: 0" *ngFor='let user of users'>
+                    <!-- <img class="card-img-top" src="" alt="Profile Pic"> -->
+                    <div class="card-body">
+                        <h6 class="text-muted">Id: {{user.id}}</h6>
+                        <h6 class="text-muted">Email: {{user.email}}</h6>
+                        <form (ngSubmit)='follow(user)'>
+                            <button type="submit" class="btn btn-secondary"> Follow </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Followers" class="container tab-pane fade">
+            <br>
+            <div class="card-columns">
+                <div class="card" style="border-radius: 0" *ngFor='let f of followersList'>
+                    <!-- <img class="card-img-top" src="" alt="Profile Pic"> -->
+                    <div class="card-body">
+                        <h6 class="text-muted">Id: {{f.id}}</h6>
+                        <h6 class="text-muted">Email: {{f.email}}</h6>
+                        <form (ngSubmit)='block(f)'>
+                            <button class="btn btn-danger"> Block </button>
+                        </form>    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="Following" class="container tab-pane fade">
+            <br>
+            <div class="card-columns">
+                <div class="card" style="border-radius: 0" *ngFor='let f of followingList'>
+                    <!-- <img class="card-img-top" src="" alt="Profile Pic"> -->
+                    <div class="card-body">
+                        <h6 class="text-muted">Id: {{f.id}}</h6>
+                        <h6 class="text-muted">Email: {{f.email}}</h6>
+                        <form (ngSubmit)='unfollow(f.id)'>
+                            <button class="btn btn-danger"> Unfollow </button>
+                        </form>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

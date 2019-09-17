@@ -1,0 +1,32 @@
+<app-login-home></app-login-home>
+<div class="container px-5">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#Newsfeed"> Newsfeed </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#BlockedAccount"> Blocked Accounts </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#AccountUpdate"> Account Update </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#Search"> Search </a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="Newsfeed" class="container tab-pane active">
+            <app-news-feed></app-news-feed>
+        </div>
+        <div id="BlockedAccount" class="container tab-pane fade">
+            <app-blocked-accounts></app-blocked-accounts>
+        </div>
+        <div id="AccountUpdate" class="container tab-pane fade">
+            <app-account-update></app-account-update>
+        </div>
+        <div id="Search" class="container tab-pane fade">
+            <app-search></app-search>
+        </div>
+    </div>
+</div>

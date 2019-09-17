@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-inverse bg-light">
+  
+  <span *ngIf="!authService.isLoggedin">
+    <a [routerLink]="['/']"> <span class="navbar-text"> PIXOGRAM </span> </a>
+  </span>
+  <span *ngIf="authService.isLoggedin">
+    <a [routerLink]="['/LoggedInHome']"> <span class="navbar-text"> PIXOGRAM </span> </a>
+  </span>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+      <li *ngIf="!authService.isLoggedin">
+        <a class="nav-link" [routerLink]="['/Register']"> Register </a>
+      </li>
+      <li *ngIf="!authService.isLoggedin">
+        <a class="nav-link" [routerLink]="['/Login']"> Login </a>
+      </li>
+      <li *ngIf="authService.isLoggedin">
+        <a class="nav-link" [routerLink]="['/UploadMedia']"> Upload Media </a>
+      </li>
+      <li *ngIf="authService.isLoggedin">
+        <a class="nav-link" [routerLink]="['/MyMedia']"> My Media </a>
+      </li>
+      <li *ngIf="authService.isLoggedin">
+        <a class="nav-link" [routerLink]="['/Follow']"> Followers/Following </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li *ngIf="authService.isLoggedin">
+        <a class="nav-link" [routerLink]="['/MyAccount']"> My Account </a>
+      </li>
+      <li *ngIf="authService.isLoggedin">
+        <a class="nav-link" [routerLink]="['/']" (click)="onLogout()"> Logout </a>
+      </li>
+    </ul>
+    <!-- <div class="dropdown" *ngIf="authService.isLoggedin">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown"> My Account </a>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" [routerLink]="['/NewsFeed']">Newsfeed</a>
+        <a class="dropdown-item" [routerLink]="['/BlockedAccounts']">Blocked Accounts</a>
+        <a class="dropdown-item" [routerLink]="['/AccountUpdate']">Account Update</a>
+        <a class="dropdown-item" [routerLink]="['/Search']">Search</a>
+      </div>
+    </div> -->
+  </div>
+</nav>
